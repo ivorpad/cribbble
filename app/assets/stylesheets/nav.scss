@@ -1,0 +1,28 @@
+.main-nav {
+  --light-gray: lightgray;
+  display: flex;
+  justify-content: start;
+  background-color: var(--light-gray);
+  padding: 1.5rem;
+  &__menu {
+    margin-left: 1rem;
+
+    ul > * + * {
+      margin-left: 1rem;
+    }
+
+    ul {
+      list-style: none;
+      margin:0;
+      padding: 0;
+      display: flex;
+    }
+  }
+  .actionables {
+    margin-left: auto;
+    display: flex;
+    .current-user {
+      margin: 0 1rem;
+    }
+  }
+}

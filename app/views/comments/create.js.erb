@@ -1,0 +1,2 @@
+document.getElementById("comments").insertAdjacentHTML('beforeend', "<%=j render partial: "posts/comments/comment", locals: {comment: @comment}, format: :html %>")
+document.getElementById('comment_body').value = "";

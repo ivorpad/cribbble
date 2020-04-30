@@ -1,0 +1,22 @@
+
+<ul>
+  <li><%= link_to "All", '/' %></li>
+  <li><%= link_to "Branding", '/category/branding' %></li>
+  <li><%= link_to "Design", '/category/design' %></li>
+</ul>
+<div>
+  <%= current_user.email %>
+</div>
+
+<% if !@posts.empty? %>
+    <div class="cribbble-shots-grid">
+      <% @posts.each do |p| %>
+        <figure class="cribbble-shot">
+          <%= image_tag p.image.variant(resize_to_limit: [250, 250]).processed.service_url %>
+          <%= link_to p.title, post_path(p.id) %>
+        </figure>
+      <% end %>
+    </div><!-- /.cribbble-shots-grid -->
+<% end %>
+
+

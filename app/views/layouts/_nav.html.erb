@@ -1,0 +1,33 @@
+    
+  <div class="main-nav">
+    <div class="main-nav__logo">
+      <%= link_to "Cribbble", root_path %>
+    </div>
+    <!-- /.logo -->
+    <div class="main-nav__menu">
+      <ul>
+        <li><a href="#">Explore</a></li>
+        <li><a href="#">For Designers</a></li>
+        <li><a href="#">Hiring Designers</a></li>
+      </ul>
+    </div>
+    <!-- /.main-nav__menu -->
+    <section class="actionables">
+      <div class="search">
+        <input type="text" name="search" id="search">
+      </div>
+      <!-- /.search -->
+      <div class="upload">
+        <%= link_to "Upload", new_post_path %>
+      </div>
+      <% if user_signed_in? %>
+        <span class="current-user"><%= current_user.email %></span>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path %>
+      <% end %>
+      
+      <!-- /.upload -->
+    </section>
+    <!-- /.actionables -->
+  </div> <!-- /.main-nav -->

@@ -1,0 +1,28 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.new-post {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+
+  input[type="text"], textarea {
+    padding: .5rem .5rem;
+  }
+
+  &> * + * {
+    margin-bottom: 1rem;
+  }
+}
+
+.cribbble-shots-grid {
+  gap: 2rem;
+  grid-gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+  figure img {
+    width: 100%;
+  }
+}

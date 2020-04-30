@@ -1,0 +1,31 @@
+<h1>Posts</h1>
+
+<h3><%= @post.title %></h3>
+<div id="likes">
+  <%= render partial: "posts/likes/likes" %>
+  
+</div><!-- /#likes -->
+<span>Uploaded by: <%= @post.user.email %></span>
+<h3><%= @post.description %></h3>
+
+<% if @post.image.attached? %>
+  <%= image_tag @post.image.variant(resize_to_limit: [250, 250]).processed.service_url %>
+<% end %>
+
+
+<div class="comments">
+
+<div id="comments"> 
+  <% @comments.each do |c| %>        
+    <%= render partial: "posts/comments/comment", locals: {comment: c} %>
+  <% end %>
+</div>
+
+
+<h3>Comments</h3>
+<%= form_with model: ([@post, @comment]) do |f| %>
+    <%= f.text_area :body %>
+    <%= f.submit %>
+<% end %>
+  
+</div><!-- /.comments -->
