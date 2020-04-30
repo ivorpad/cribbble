@@ -48,6 +48,7 @@ group :development do
   gem 'acts-as-taggable-on', '~> 6.0'
   gem 'devise'
   gem 'pry-rails', '~> 0.3.6'
+  gem "pundit"
 end
 
 group :test do

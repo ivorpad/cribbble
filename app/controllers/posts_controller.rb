@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = authorize Post.find(params[:id])
     @comment = @post.comments.new
     @comments = @post.comments.all
   end
@@ -18,6 +18,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.create!(post_params)
+    authorize @post
     if @post.save
       redirect_to @post
     else
@@ -30,10 +31,19 @@ class PostsController < ApplicationController
     render "categorized"
   end
 
-  def patch
+  def edit
+    @post = Post.find(params[:id])
+    authorize @post
   end
 
   def update
+     @post = Post.find(params[:id])
+     @post.update(params.require(:post).permit(:title, :description, :faves, :image))
+    if @post.save
+      redirect_to @post
+    else
+      render "edit"
+    end
   end
 
   def delete

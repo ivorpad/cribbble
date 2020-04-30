@@ -4,6 +4,14 @@
 <div id="likes">
   <%= render partial: "posts/likes/likes" %>
   
+  <div class="actions">
+    <%= link_to "Delete", post_path(@post), method: :delete %>
+    <% if policy(@post).edit? %>
+      <%= link_to "Edit", edit_post_path(@post) %>
+    <% end %>
+  </div><!-- /.actions -->
+
+
 </div><!-- /#likes -->
 <span>Uploaded by: <%= @post.user.email %></span>
 <h3><%= @post.description %></h3>

@@ -1,0 +1,25 @@
+<h1>Create New Post</h1>
+
+<%= form_with model: @post, class: "new-post" do |f| %>
+
+    <% if @post.errors.any? %>
+      <div class="form_error">
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+            <li><%='Error: ' +  msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <%= f.label :tag_list %>
+    <%= f.text_field :tag_list, value: f.object.tag_list.to_s %>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+    <%= f.submit %>
+<% end %>
+  
